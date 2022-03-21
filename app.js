@@ -2,11 +2,15 @@ const routes = require("./routes");
 require('dotenv').config()
 const express = require('express');
 const { engine } = require('express-handlebars');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const Handlebars = require("handlebars");
+
 const  path  = require('path');
 const session = require('express-session');
 const { default: mongoose } = require("mongoose");
 
 const app = express(); 
+
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: process.env.SESSION_SECRATE,
@@ -33,11 +37,15 @@ mongoose
 app.engine(".hbs", engine({
     extname: ".hbs",
     defaultLayout: "main",
+    handlebars:allowInsecurePrototypeAccess(Handlebars),
+
   })
 )
 app.set("view engine", ".hbs");   //Sets our app to use the handlebars engine
 app.use(express.urlencoded({ extended: false })) // use for getting form url data encoded
 app.set("views", path.join(__dirname, "views"))  //Sets handlebars configurations 
+app.use(express.static(path.join(__dirname, 'uploads')));
+
 // handle bars code end here
 
 

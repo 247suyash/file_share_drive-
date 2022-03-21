@@ -1,0 +1,362 @@
+<style>
+    .pricing {
+        margin: 40px 0px;
+    }
+
+    .pricing .table {
+        border-top: 1px solid #ddd;
+        background: #fff;
+    }
+
+    .pricing .table th,
+    .pricing .table {
+        text-align: center;
+    }
+
+    .pricing .table th,
+    .pricing .table td {
+        padding: 20px 10px;
+        border: 1px solid #ddd;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pricing .table th {
+        width: 25%;
+        font-size: 30px;
+        font-weight: 400;
+        border-bottom: 0;
+        background: #2F313A;
+        color: #EBEDF3;
+        text-transform: uppercase;
+    }
+
+    .pricing .table th.highlight {
+        border-top: 4px solid #4caf50 !important;
+    }
+
+    .pricing .table tr:nth-child(odd) {
+        background: #f0f8ff;
+    }
+
+    .pricing .table td:first-child {
+        padding-left: 20px;
+        text-align: left;
+        padding-top: 35px;
+        background: #5F97FB;
+    }
+
+    .pricing tr td .ptable-title {
+        font-size: 22px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    .pricing tr td .ptable-title i {
+        width: 23px;
+        line-height: 25px;
+        text-align: right;
+        margin-right: 5px;
+    }
+
+    .pricing .ptable-star {
+        position: relative;
+        display: block;
+        text-align: center;
+    }
+
+    .pricing .ptable-star.red {
+        color: #e91e63;
+    }
+
+    .pricing .ptable-star.green {
+        color: #4caf50;
+    }
+
+    .pricing .ptable-star.lblue {
+        color: #03a9f4;
+    }
+
+    .pricing .ptable-star i {
+        width: 8px;
+        font-size: 13px;
+    }
+
+    .pricing .ptable-price {
+        display: block;
+    }
+
+    .pricing tr td {
+        font-size: 16px;
+        line-height: 32px;
+        text-transform: uppercase;
+    }
+
+    .pricing tr td.bg-red {
+        background: #e91e63;
+    }
+
+    .pricing tr td.bg-green {
+        background: #4caf50;
+    }
+
+    .pricing tr td.bg-lblue {
+        background: #03a9f4;
+    }
+
+    .pricing tr td.bg-red a,
+    .pricing tr td.bg-green a,
+    .pricing tr td.bg-lblue a {
+        color: #fff;
+    }
+
+    .pricing tr td i {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 30px;
+    }
+
+    .pricing tr td i.red {
+        color: #e91e63;
+    }
+
+    .pricing tr td i.green {
+        color: #4caf50;
+    }
+
+    .pricing tr td i.lblue {
+        color: #03a9f4;
+    }
+
+    .pricing tr td:first-child i {
+        display: inline;
+        margin-bottom: 0px;
+        font-size: 22px;
+    }
+</style>
+{{!-- <h2 class="text-center"><a href="http://www.nextbootstrap.com/" target="_blank">Next Bootstrap</a> for free
+    bootstrap
+    themes and code snippets</h2> --}}
+<!-- Pricing # -->
+<div class="pricing">
+    <div class="container">
+        <div class="pricing-table table-responsive">
+            <table class="table">
+                <!-- Heading -->
+                <thead>
+                    <tr>
+                        <th>&nbsp;
+                            Plans
+                        </th>
+                        <th>
+                            Free
+                            <span class="ptable-star red">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="ptable-price">$0</span>
+                        </th>
+                        <th>
+                            Basic
+                            <span class="ptable-star green">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                            <span class="ptable-price">$50</span>
+                        </th>
+                        <th>
+                            Standard
+                            <span class="ptable-star lblue">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </span>
+                            <span class="ptable-price">$100</span>
+                        </th>
+                        <th>
+                            Premium
+                            <span class="ptable-star lblue">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </span>
+                            <span class="ptable-price">$200</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Image upload</span></td>
+                        <td>
+                            <!-- Icon -->
+                            <i class="fa fa-hdd-o red"></i>
+                            5 Image
+                        </td>
+                        <td>
+                            <!-- Icon -->
+                            <i class="fa fa-hdd-o green"></i>
+                            10 Image
+                        </td>
+                        <td>
+                            <!-- Icon -->
+                            <i class="fa fa-hdd-o lblue"></i>
+                            20 Image
+                        </td>
+                        <td>
+                            <!-- Icon -->
+                            <i class="fa fa-hdd-o lblue"></i>
+                            unlimited
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="ptable-title"><i class="fa fa-signal"></i>Image sharing public</span></td>
+                        <td>
+                            <i class="fa fa-signal red"></i>
+                            5 image
+                        </td>
+                        <td>
+                            <i class="fa fa-signal red"></i>
+                            10 image
+                        </td>
+                        <td>
+                            <i class="fa fa-signal green"></i>
+                            20 image
+                        </td>
+                        <td>
+                            <i class="fa fa-signal lblue"></i>
+                            unlimited
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="ptable-title"><i class="fa fa-shield"></i>Image sharing private</span></td>
+                        <td>
+                            <i class="fa fa-shield red"></i>
+                            0 image
+                        </td>
+                        <td>
+                            <i class="fa fa-shield green"></i>
+                            0 image
+                        </td>
+                        <td>
+                            <i class="fa fa-shield lblue"></i>
+                            unlimited
+                        </td>
+                        <td>
+                            <i class="fa fa-shield lblue"></i>
+                            unlimited
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="ptable-title"><i class="fa fa-headphones"></i>Invitation</span></td>
+                        <td>
+                            <i class="fa fa-times red"></i>
+                            0 image
+                        </td>
+                        <td>
+                            <i class="fa fa-times red"></i>
+                            0 image
+                        </td>
+                        <td>
+                            <i class="fa fa-phone green"></i>
+                            10 image
+                        </td>
+                        <td>
+                            <i class="fa fa-envelope-o lblue"></i>
+                            unlimited
+                        </td>
+                    </tr>
+
+                    <!-- Buttons -->
+                    <tr>
+                        <td>&nbsp;</td>
+                        {{#each data}}
+                        <td class="{{this.color}}">
+                            <button class="btn" {{!-- type="submit" --}} {{!-- name="plan" --}} {{!--
+                                value="{{this.id}}" --}} onclick="setFileId('{{ this.id}}')" {{!--
+                                onclick="setFileId('{{ this._id }}')" --}} data-toggle="modal"
+                                data-target="#exampleModalCenters">
+                                BUY
+                            </button>
+                            <input type="hidden" />
+                        </td>
+
+                        {{/each}}
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Purchasing Package Details</h5>
+                <button type="button" style="float: right;" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" action="/pay" method="post">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="share-email" class="form-label">Your Purchasing Package is </label>
+                        <input style="border: 0px; font-weight: bolder; color: #4caf50; " type="text" name="fileId"
+                            id="fileId" />
+                        <label for="share-email" class="form-label"> Total Ammount of Purchasing $</label>
+                        <input style="border: 0px; font-weight: bolder; color: #4caf50; " type="text" name="amount"
+                            id="amount" />
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" style="background-color: #4caf50;" class="btn btn-primary">Buy</button>
+                </div>
+            </form>
+            {{!-- <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>PayPal Node App</title>
+            </head>
+
+            <body>
+                <h1>Boston Red Sox Hat</h1>
+                <h2>Buy For $25</h2>
+                <form action="/pay" method="post">
+                    <input type="submit" value="Buy">
+                </form>
+            </body>
+
+            </html> --}}
+        </div>
+    </div>
+</div>
+<script>
+    const numbers = [{ id: "free", amount: "5", },
+    { id: "basic", amount: "10" },
+    { id: "standard", amount: "100" },
+    { id: "premium", amount: "200" }];
+
+    function setFileId(fileId) {
+        document.getElementById("fileId").value = fileId;
+        let getvalue = numbers.find(numbers => numbers.id === fileId);
+        document.getElementById("amount").value = getvalue.amount;
+    }
+
+
+</script>
