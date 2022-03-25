@@ -51,7 +51,8 @@
       border-right: none;
     }
   }
-  .form-error{
+
+  .form-error {
     color: rgb(197, 5, 5);
   }
 </style>
@@ -90,8 +91,10 @@
           alt="Phone image">
       </div>
       <div class="col-md-6 ">
+        <p style="color: green; float: right; font-weight: bolder; padding-right: 40px;">{{success}}</p>
+
         <form action="/login" method="post">
-            <label class="form-error" for="form3Example1c">{{this.errorsMessage}}</label>
+          <label class="form-error" for="form3Example1c">{{this.errorsMessage}}</label>
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input placeholder="Email" type="email" name="email" id="form1Example13"
@@ -116,8 +119,8 @@
           <div>
 
             <a href="/signup"> Create a new account..! </a>
+            <a style="float: right;" href="/forget"> Forgot password </a>
 
-            </button>
 
           </div>
         </form>

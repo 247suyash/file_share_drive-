@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+
 const handleValidationErrors = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -39,5 +40,5 @@ const signinhandleValidationErrors = async (req, res, next) => {
 
 module.exports = {
   handleValidationErrors,
-  signinhandleValidationErrors,
+  signinhandleValidationErrors
 };
