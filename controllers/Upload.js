@@ -1,8 +1,9 @@
 const File =require('../models/file');
 const UserModel = require('../models/UserModel');
+
 const uploadaction = async (req, res, next) => {
-    try {
       const { file } = req;
+      console.log("file",file)
       const {userId , userEmail } = req.session;
       await File.create({
         name: file.originalname,
@@ -19,15 +20,7 @@ const uploadaction = async (req, res, next) => {
      await UserModel.findOneAndUpdate({ _id: userId }, { $set: { upload: userUploadLimit.upload+1 } }, { new: true })
 
       return res.redirect("/");
-  
-    } catch (error) {
-      return res.status(500).json({
-        success: false,
-        message:
-          " upload action error",
-        error: error
-      });
-    }
+    
   };
   module.exports = {
     uploadaction,

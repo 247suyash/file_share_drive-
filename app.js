@@ -4,10 +4,10 @@ const express = require('express');
 const { engine } = require('express-handlebars');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const Handlebars = require("handlebars");
-
 const  path  = require('path');
 const session = require('express-session');
 const { default: mongoose } = require("mongoose");
+const flash = require("connect-flash");
 
 const app = express(); 
 
@@ -16,8 +16,16 @@ app.use(session({
   secret: process.env.SESSION_SECRATE,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { secure: false },
+
 }))
+app.use(session({
+  secret:'this session use for flash',
+  resave:false,
+  saveUninitialized:true
+}))
+// app.use(cookieParser('keyboard cat'));
+  app.use(flash());
 // create server code start here  
 const port = process.env.PORT
 app.listen(port, () => {

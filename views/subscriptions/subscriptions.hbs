@@ -1,6 +1,6 @@
 <style>
     .pricing {
-        margin: 40px 0px;
+        padding: 70px 0px 0px 0px;
     }
 
     .pricing .table {
@@ -133,10 +133,84 @@
         font-size: 22px;
     }
 </style>
-{{!-- <h2 class="text-center"><a href="http://www.nextbootstrap.com/" target="_blank">Next Bootstrap</a> for free
-    bootstrap
-    themes and code snippets</h2> --}}
-<!-- Pricing # -->
+<style>
+    .navbar {
+        background-color: #1d5ca5;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        float: right;
+    }
+
+    .navbar-nav .nav-item {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .navbar .navbar-nav .nav-link:hover {
+        color: #fbc531;
+    }
+
+    .navbar .navbar-nav .active>.nav-link {
+        color: #fbc531;
+    }
+
+    footer a.text-light:hover {
+        color: #fed136 !important;
+        text-decoration: none;
+    }
+
+    footer .cizgi {
+        border-right: 1px solid #535e67;
+    }
+
+    @media (max-width: 992px) {
+        footer .cizgi {
+            border-right: none;
+        }
+    }
+</style>
+<header>
+    <!--- Navbar --->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#"><i class="fa fa-graduation-cap fa-lg mr-2"></i>GOOGLE DRIVE</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse"
+                aria-controls="nvbCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nvbCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item  pl-1">
+                        <a class="nav-link" href="/"><i class="fa fa-home fa-fw mr-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item active pl-1">
+                        <a class="nav-link" href="/subscription"><i
+                                class="fa fa-th-list fa-fw mr-1"></i>Subscription</a>
+                    </li>
+                    <li class="nav-item  pl-1">
+                        <form action="/logout" method="post">
+                            <a class="nav-link"><i class="fa fa-info-circle fa-fw mr-1"></i>
+                                <button type="submit"
+                                    style="float: right; border: 0px; background:none; padding-top: 8px;">
+                                    Logout</button>
+
+                            </a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--# Navbar #-->
+</header>
 <div class="pricing">
     <div class="container">
         <div class="pricing-table table-responsive">
@@ -280,16 +354,15 @@
                         <td>&nbsp;</td>
                         {{#each data}}
                         <td class="{{this.color}}">
-                            <button class="btn" {{!-- type="submit" --}} {{!-- name="plan" --}} {{!--
-                                value="{{this.id}}" --}} onclick="setFileId('{{ this.id}}')" {{!--
-                                onclick="setFileId('{{ this._id }}')" --}} data-toggle="modal"
+                            <button class="btn" onclick="setFileId('{{this.id}}')" data-toggle="modal"
                                 data-target="#exampleModalCenters">
                                 BUY
                             </button>
                             <input type="hidden" />
                         </td>
-
                         {{/each}}
+
+                        {{this.plan}}
 
                     </tr>
                 </tbody>
@@ -309,14 +382,23 @@
             </div>
             <form role="form" action="/pay" method="post">
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="share-email" class="form-label">Your Purchasing Package is </label>
+                    <div class="mb-12">
+                        <label for="share-email" class="form-label"> Total image upload limit is &emsp;&emsp;&ensp;&nbsp; &ensp; </label>
+                        <input style="border: 0px; font-weight: bolder; color: #4caf50; " type="text" name="imageUpload"
+                            id="imageUpload" />
+                        <label for="share-email" class="form-label"> Total public image share limit is &emsp;</label>
+                        <input style="border: 0px; font-weight: bolder; color: #4caf50; " type="text" name="imageShare"
+                            id="imageShare" />
+                        <label for="share-email" class="form-label"> Total private image share limit is&emsp; </label>
+                        <input style="border: 0px; font-weight: bolder; color: #4caf50; " type= "text" name="imageSharePvt"
+                            id="imageSharePvt" />
+                        <hr>  
+                        <label for="share-email" class="form-label">Your purchasing package is &ensp;</label>
                         <input style="border: 0px; font-weight: bolder; color: #4caf50; " type="text" name="fileId"
                             id="fileId" />
-                        <label for="share-email" class="form-label"> Total Ammount of Purchasing $</label>
+                        <label for="share-email" class="form-label"> Total amount of purchasing $</label>
                         <input style="border: 0px; font-weight: bolder; color: #4caf50; " type="text" name="amount"
                             id="amount" />
-
 
                     </div>
                 </div>
@@ -347,15 +429,18 @@
     </div>
 </div>
 <script>
-    const numbers = [{ id: "free", amount: "5", },
-    { id: "basic", amount: "10" },
-    { id: "standard", amount: "100" },
-    { id: "premium", amount: "200" }];
+    const numbers = [{ id: "free", amount: "0", imageUpload: "5", imageShare: "5", imageSharePvt: "0" },
+    { id: "basic", amount: "50", imageUpload: "10", imageShare: "10", imageSharePvt: "0" },
+    { id: "standard", amount: "100", imageUpload: "20", imageShare: "20", imageSharePvt: "Unlimited" },
+    { id: "premium", amount: "200", imageUpload: "Unlimited", imageShare: "Unlimited", imageSharePvt: "Unlimited" }];
 
     function setFileId(fileId) {
         document.getElementById("fileId").value = fileId;
         let getvalue = numbers.find(numbers => numbers.id === fileId);
         document.getElementById("amount").value = getvalue.amount;
+        document.getElementById("imageUpload").value =getvalue.imageUpload;
+        document.getElementById("imageShare").value=getvalue.imageShare;
+        document.getElementById("imageSharePvt").value=getvalue.imageSharePvt
     }
 
 

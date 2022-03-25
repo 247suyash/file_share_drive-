@@ -2,8 +2,8 @@ const { AVAILABLE_TEMPLATES, Email } = require("../utils/Email");
 
 const sendEmail = async(req, res,next) => {
     try {
-      const { emails } = req.body
-      console.log(emails)
+      const { emails,filePath } = req.body
+      console.log( "its private",emails ,filePath)
       const emailClient = new Email();
       emailClient.setTemplate(AVAILABLE_TEMPLATES.REQUEST);
       emailClient.setBody();

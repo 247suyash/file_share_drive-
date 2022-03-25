@@ -1,16 +1,18 @@
 const UserModel = require("../models/UserModel");
 
 const subscription = async (req, res) => {
+  const userId = req.session.userId;
+  const user = await UserModel.findById(userId)
   const buttonValue = [
     { id: "free" , ammount:"$5",color:"bg-red"},
     { id: "basic" ,ammount:"$10",color:"bg-green" },
     { id: "standard",ammount:"$100",color:"bg-lblue" },
     { id: "premium" ,ammount:"$200",color:"bg-warning"},
   ]
-
+  console.log(user.plan)
   return res.render('subscriptions/subscriptions',
     {
-      data: buttonValue
+      data: buttonValue,
     }
   )
 }
@@ -21,8 +23,8 @@ const subscriptionAction = async (req, res) => {
     console.log("fileId",fileId ,
                   "emails...",emails)
     const userId = req.session.userId;
-    // await UserModel.findOneAndUpdate({ _id: userId }, { $set: { plan: plan } }, { new: true })
-    // return res.redirect("/");
+    await UserModel.findOneAndUpdate({ _id: userId }, { $set: { plan: plan } }, { new: true })
+    return res.redirect("/");
 
   } catch (e) {
     console.log(e)

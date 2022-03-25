@@ -5,11 +5,11 @@ const permittedaction = async (req, res, next) => {
   try {
     const userId = req.session.userId;
 
-    const { fileId, emails } = req.body;
+    const { filePath, emails } = req.body;
     console.log("this is perticular file id",req.body)
 
-    const file = await File.findById(fileId);
-    console.log("this is perticular file id", emails , fileId)
+    const file = await File.findById(filePath);
+    console.log("this is perticular file id", emails , filePath)
 
     if (!file) {                 //file is not avaliable redirect on home page
       return res.redirect("/");

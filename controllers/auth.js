@@ -27,7 +27,9 @@ const loginpage = async (req, res, next) => {
         return res.redirect("/");
       }
       else {
-        return res.redirect("/login")
+        return res.render("login/login",{
+          errorsMessage:"Invalid cridentials"
+        })
       }
     } catch (error) {
       return res.status(500).json({
@@ -55,6 +57,7 @@ const loginpage = async (req, res, next) => {
     try {
       console.log("api call", UserModel, req.body)
       const { firstName, lastName, email, password } = req.body
+      
       await UserModel.create({
         firstName,
         lastName,

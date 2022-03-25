@@ -7,8 +7,8 @@ const sharePublically =async (req, res)=>{
     try {
       const {userId} = req.session;
 
-        const {filePath, emails } = req.body
-        console.log("sharing",emails ,filePath)
+        const {filePath, emails ,fileId } = req.body
+        console.log("sharing public",emails , "filepath :",filePath ,"fileId:" ,fileId)
         const file = await File.findById(filePath);
         console.log("CHECK THE PATH OF IMAGE", file.path)
         const emailClient = new Email();
@@ -19,13 +19,12 @@ const sharePublically =async (req, res)=>{
         emailClient.send(emails);
         const userShareLimit = await UserModel.findById({_id:userId})      
         await UserModel.findOneAndUpdate({ _id: userId }, { $set: { sharePublic: userShareLimit.sharePublic+1 } }, { new: true })
-   
-        
+                                                                                                                                                                             
         return res.redirect("/")
       } catch (error) {
         return res.status(500).json({
           success: false,
-          message:
+          message:                                                    
             "email error",
           error: error
         });
